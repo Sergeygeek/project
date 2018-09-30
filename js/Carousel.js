@@ -26,14 +26,33 @@ class Carousel {
             e.preventDefault();        
             if(e.target.classList.contains('left')){
                 this.curImg = --this.curImg;
-                this._renderImg();
+                this._prevImg();
             } else if (e.target.classList.contains('right')){
                 this.curImg = ++this.curImg;
-                this._renderImg();
+                this._nextImg();
             } else {
                 return
             }
         }) 
     }
-
+    _nextImg(){
+        if (this.curImg === this.images.length) {
+            this.curImg = 0;
+            let src = this.images[this.curImg].src;
+            $(this.imgContainer).attr("src", src);
+        } else {
+            let src = this.images[this.curImg].src;
+            $(this.imgContainer).attr("src", src);
+        }
+    }
+    _prevImg(){
+        if (this.curImg === -1) {
+            this.curImg = --this.images.length;
+            let src = this.images[this.curImg].src;
+            $(this.imgContainer).attr("src", src);
+        } else {
+            let src = this.images[this.curImg].src;
+            $(this.imgContainer).attr("src", src);
+        }   
+    }
 }
