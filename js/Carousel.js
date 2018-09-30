@@ -48,8 +48,6 @@ class Carousel {
     _prevImg(){
         if (this.curImg === -1) {
             this.curImg = this.images.length - 1;
-            console.log(this.images);
-            console.log(this.images[this.curImg]);
             let src = this.images[this.curImg].src;
             $(this.imgContainer).attr("src", src);
         } else {
