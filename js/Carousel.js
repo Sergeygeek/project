@@ -25,10 +25,10 @@ class Carousel {
         $(this.container).click((e) => {
             e.preventDefault();        
             if(e.target.classList.contains('left')){
-                this.curImg = --this.curImg;
+                this.curImg = this.curImg - 1;
                 this._prevImg();
             } else if (e.target.classList.contains('right')){
-                this.curImg = ++this.curImg;
+                this.curImg = this.curImg + 1;
                 this._nextImg();
             } else {
                 return
@@ -47,7 +47,9 @@ class Carousel {
     }
     _prevImg(){
         if (this.curImg === -1) {
-            this.curImg = --this.images.length;
+            this.curImg = this.images.length - 1;
+            console.log(this.images);
+            console.log(this.images[this.curImg]);
             let src = this.images[this.curImg].src;
             $(this.imgContainer).attr("src", src);
         } else {
