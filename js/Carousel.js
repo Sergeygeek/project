@@ -24,10 +24,10 @@ class Carousel {
 
         $(this.container).click((e) => {
             e.preventDefault();        
-            if(e.target.classList.contains('left')){
+            if(e.target.classList.contains('left') || e.target.classList.contains('fa-angle-left')){
                 this.curImg = this.curImg - 1;
                 this._prevImg();
-            } else if (e.target.classList.contains('right')){
+            } else if (e.target.classList.contains('right') || e.target.classList.contains('fa-angle-right')){
                 this.curImg = this.curImg + 1;
                 this._nextImg();
             } else {
